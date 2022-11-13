@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 5000:5000
+    environment:
+      - FLASK_APP=project/__init__.py
+    db:
+        image: postgres
+        environment:
+          - POSTGRES_USER=jigsaw
+          - POSTGRES_PASSWORD=secret
+        ports:
+          - "5432:5432"
+        volumes:
+          - "dbdata:/var/lib/postgresql/data"
+    volumes:
+      dbdata:
+
