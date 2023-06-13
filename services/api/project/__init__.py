@@ -6,7 +6,7 @@ app = Flask(__name__)
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 connection = Postgres(SQLALCHEMY_DATABASE_URI)
 
-connection.run("CREATE TABLE users (name text)")
+connection.run("CREATE TABLE if not exists users (name text)")
 connection.run("INSERT INTO users VALUES ('maggie simpson')")
 
 @app.route('/users')

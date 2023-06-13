@@ -1,4 +1,4 @@
-Flask==1.0.2
+Flask
 postgres
 Flask-SQLAlchemy==2.4.1
 psycopg2-binary==2.8.4
